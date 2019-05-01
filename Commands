@@ -1,0 +1,106 @@
+
+    5  yum install docker -y 
+    6  service docker start
+    7  docker login
+   10  docker network ls
+   11  docker network create -d bridge network1
+   12  docker network ls
+   13  docker network create network2
+   14  docker network ls
+   15  docker network rm network1 network2
+   16  docker network ls
+   17  docker network create network1
+   18  docker pull somidocker/ubuntu_devops
+   19  docker run --network -p 8080:8080 -td --name container1 somidocker/ubuntu_devops
+   20  docker images
+   21  docker run --network -p 8080:8080 -td --name container1 somidocker/ubuntu_devops:latest
+   22  docker login
+   23  docker run --network -p 8080:8080 -td --name container1 somidocker/ubuntu_devops:latest
+   24  docker run --network1 -p 8080:8080 -td --name container1 somidocker/ubuntu_devops:latest
+   25  docker run --network -p 8080:8080 -d --name container1 somidocker/ubuntu_devops:latest
+   26  docker login somidocker
+   27  docker run --network1 -p 8080:8080 -td --name container1 ubuntu:latest
+   28  docker run --network -p 8080:8080 -td --name container1 ubuntu:latest
+   29  docker run -td --name container1 --network -p 8080:8080 somidocker/ubuntu_devops:latest
+   30  docker run -td --name container1 --network -p 8080:8080 somidocker/ubuntu_devops /bin/bash
+   31  docker run -td --name container1 --network -P 8080:8080 somidocker/ubuntu_devops /bin/bash
+   32  docker run --help
+   33  docker run -td --name container1 -p 8080:8080 somidocker/ubuntu_devops /bin/bash
+   34  docker ps 
+   35  docker stop container1
+   36  docker rm container1
+   37  docker run -td --name container1 --network network1 -p 8080:8080 somidocker/ubuntu_devops /bin/bash
+   38  docker inspect container1
+   39  docker network inspect network1
+   40  docker run --name container2 -d -p 8080:8081 somidocker/ubuntu_devops
+   41  docker run --name container2 -d -p 8081:8080 somidocker/ubuntu_devops
+   42  docker ps
+   43  docker ps -a
+   44  docker rm container2
+   45  docker run --name container2 -d -p 8081:8080 somidocker/ubuntu_devops
+   46  docker ps
+   47  docker run --name container2 -d -p 8082:8080 somidocker/ubuntu_devops
+   48  docker run --name container3 -d -p 8082:8080 somidocker/ubuntu_devops
+   49  docker ps -a
+   50  docker inspect container2
+   51  docker inspect container3
+   52  docker rm container2
+   53  docker rm container3
+   54  docker run --name container2 --network network1 -td -p 8082:8080 somidocker/ubuntu_devops
+   55  docker run --name container3 --network network1 -td -p 8081:8080 somidocker/ubuntu_devops
+   56  docker inspect container2
+   57  docker inspect container3
+   58  docker inspect container2 | grep IPAddress
+   59  docker inspect container3 | grep IPAddress
+   60  docker exec -it container2 /bin/bash
+   61  docker exec -it container3 /bin/bash
+   62  docker network create network2
+   63  docker network connect network2 container2
+   64  docker network connect network2 container3
+   65  docker inspect container2
+   66  docker inspect container3
+   67  docker exec -it container2 /bin/bash
+   68  docker network disconnect network1 container1
+   69  docker network disconnect network1 container2
+   70  docker network disconnect network1 container3
+   71  docker container stop container2 container3
+   72  docker container rm container2 container3
+   73  docker network rm network2
+   74  docker network ls
+   75  docker run -d --network host --name jenkins somidocker/ubuntu_devops
+   76  curl localhost:8080
+   77  docker container ls
+   78  docker ps
+   79  docker stop container1
+   80  docker run -d --network host --name jenkins -p 8080:8080 somidocker/ubuntu_devops
+   81  docker run -d --network host --name jenkins8080 -p 8080:8080 somidocker/ubuntu_devops
+   82  curl localhost:8080
+   83  docker ps
+   84  docker ps -a
+   85  docker container rm container1 jenkins jenkins8080
+   86  docker run -td --network host --name jenkins8080 -p 8080:8080 somidocker/ubuntu_devops
+   87  curl localhost:8080
+   88  curl 3.18.102.100:8080
+   89  docker ps
+   90  yum install https -y
+   91  yum install httpd -y
+   92  service httpd start
+   93  curl localhost:8080
+   94  curl 3.18.102.100:8080
+   95  ping 3.18.102.100
+   96  docker ps
+   97  docker stop jenkins8080
+   98  docker rm jenkins8080
+   99  docker run -td --network network1 --name jenkins8080 -p 8080:8080 somidocker/ubuntu_devops
+  100  curl 3.18.102.100:8080
+  101  curl 3.18.102.100:8080
+  102  curl localhost:8080
+  103  curl localhost:80
+  104  curl 3.18.102.100:80
+  105  curl 3.18.102.100:8080
+  106  docker ps
+  107  docker exec -it jenkins8080 service jenkins start
+  108  curl 3.18.102.100:8080
+  109  curl localhost:8080
+  110  clear
+  111  history
