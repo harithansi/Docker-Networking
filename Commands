@@ -11,24 +11,6 @@
    16  docker network ls
    17  docker network create network1
    18  docker pull somidocker/ubuntu_devops
-   19  docker run --network -p 8080:8080 -td --name container1 somidocker/ubuntu_devops
-   20  docker images
-   21  docker run --network -p 8080:8080 -td --name container1 somidocker/ubuntu_devops:latest
-   22  docker login
-   23  docker run --network -p 8080:8080 -td --name container1 somidocker/ubuntu_devops:latest
-   24  docker run --network1 -p 8080:8080 -td --name container1 somidocker/ubuntu_devops:latest
-   25  docker run --network -p 8080:8080 -d --name container1 somidocker/ubuntu_devops:latest
-   26  docker login somidocker
-   27  docker run --network1 -p 8080:8080 -td --name container1 ubuntu:latest
-   28  docker run --network -p 8080:8080 -td --name container1 ubuntu:latest
-   29  docker run -td --name container1 --network -p 8080:8080 somidocker/ubuntu_devops:latest
-   30  docker run -td --name container1 --network -p 8080:8080 somidocker/ubuntu_devops /bin/bash
-   31  docker run -td --name container1 --network -P 8080:8080 somidocker/ubuntu_devops /bin/bash
-   32  docker run --help
-   33  docker run -td --name container1 -p 8080:8080 somidocker/ubuntu_devops /bin/bash
-   34  docker ps 
-   35  docker stop container1
-   36  docker rm container1
    37  docker run -td --name container1 --network network1 -p 8080:8080 somidocker/ubuntu_devops /bin/bash
    38  docker inspect container1
    39  docker network inspect network1
