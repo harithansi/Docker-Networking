@@ -82,7 +82,6 @@
    87  curl localhost:8080
    88  curl 3.18.102.100:8080
    89  docker ps
-   90  yum install https -y
    91  yum install httpd -y
    92  service httpd start
    93  curl localhost:8080
@@ -92,15 +91,7 @@
    97  docker stop jenkins8080
    98  docker rm jenkins8080
    99  docker run -td --network network1 --name jenkins8080 -p 8080:8080 somidocker/ubuntu_devops
-  100  curl 3.18.102.100:8080
-  101  curl 3.18.102.100:8080
-  102  curl localhost:8080
-  103  curl localhost:80
-  104  curl 3.18.102.100:80
-  105  curl 3.18.102.100:8080
   106  docker ps
   107  docker exec -it jenkins8080 service jenkins start
   108  curl 3.18.102.100:8080
   109  curl localhost:8080
-  110  clear
-  111  history
