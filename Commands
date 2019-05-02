@@ -40,3 +40,13 @@
    82  curl localhost:8080
    99  docker run -td --network network1 --name jenkins8080 -p 8080:8080 somidocker/ubuntu_devops
   107  docker exec -it jenkins8080 service jenkins start
+  
+  
+  
+  issues ::
+  
+  
+  https://stackoverflow.com/questions/41453263/docker-networking-disabled-warning-ipv4-forwarding-is-disabled-networking-wil 
+  
+  
+  https://askubuntu.com/questions/91543/apt-get-update-fails-to-fetch-files-temporary-failure-resolving-error  
